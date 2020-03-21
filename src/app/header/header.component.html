@@ -1,20 +1,26 @@
 <header class="header">
   <div class="header__container">
-    <button class="header__toggle">
-      <i class="fas fa-bars fa-lg"></i>
-    </button>
-    <a
-      href="/"
-      title="Página inicial do YouTube"
-      id="logo"
-      class="header__brand"
-    >
-      <img
-        src="../../assets/yt_logo_light.svg"
-        alt="logo"
-        class="header__logo"
-      />
-    </a>
+    <div class="header-menu">
+      <div class="header-menu__wrapper header-menu__wrapper--spaced">
+        <button type="button" class="header-menu__button">
+          <span class="material-icons">
+            menu
+          </span>
+        </button>
+      </div>
+      <a
+        href="/"
+        title="Página inicial do YouTube"
+        id="logo"
+        class="header__brand"
+      >
+        <img
+          src="../../assets/yt_logo_light.svg"
+          alt="logo"
+          class="header__logo"
+        />
+      </a>
+    </div>
     <div class="header__searchbox">
       <app-header-searchbox></app-header-searchbox>
     </div>
@@ -22,21 +28,27 @@
       <div class="header-menu__wrapper">
         <a class="header-menu__item" title="Criar um video e mais">
           <button type="button" class="header-menu__button">
-            <i class="fas fa-video"></i>
+            <span class="material-icons">
+              video_call
+            </span>
           </button>
         </a>
       </div>
       <div class="header-menu__wrapper">
         <a class="header-menu__item" title="Aplicativos do YouTube">
           <button type="button" class="header-menu__button">
-            <i class="fas fa-th"></i>
+            <span class="material-icons">
+              apps
+            </span>
           </button>
         </a>
       </div>
       <div class="header-menu__wrapper">
         <a class="header-menu__item" title="Notificações">
           <button type="button" class="header-menu__button">
-            <i class="fas fa-bell"></i>
+            <span class="material-icons">
+              add_alert
+            </span>
           </button>
         </a>
         <div class="header-menu__notification-count">
@@ -46,7 +58,9 @@
       <div class="header-menu__wrapper">
         <a class="header-menu__item" title="Usuário">
           <button type="button" class="header-menu__button">
-            <i class="fas fa-user"></i>
+            <span class="material-icons">
+              account_circle
+            </span>
           </button>
         </a>
       </div>

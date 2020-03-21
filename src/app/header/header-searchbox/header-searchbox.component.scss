@@ -32,7 +32,7 @@
   &__button {
     outline: none;
     cursor: pointer;
-    width: 4rem;
+    width: 4.5rem;
     border: 1px solid #d3d3d3;
     border-radius: 0 2px 2px 0;
     background-color: #f8f8f8;
@@ -45,5 +45,7 @@
   &__icon {
     color: lighten($primary-text-color, 15%);
     opacity: 0.6;
+    font-size: 20px;
+    font-weight: 500;
   }
 }

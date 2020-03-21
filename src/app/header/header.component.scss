@@ -15,22 +15,11 @@
   }
 
   &__brand {
-    height: 20px;
+    height: 1.1rem;
   }
 
   &__logo {
     height: 100%;
-  }
-
-  &__toggle {
-    border: none;
-    background-color: transparent;
-    margin: 0 1rem 0 0;
-    cursor: pointer;
-
-    i {
-      height: 50px;
-    }
   }
 
   &__searchbox {
@@ -46,8 +35,12 @@
   // justify-content: space-around;
 
   &__wrapper {
-    margin-right: 8px;
+    margin-right: 0.5rem;
     position: relative;
+  }
+
+  &__wrapper--spaced {
+    margin-right: 1rem;
   }
 
   &__item {
@@ -55,6 +48,8 @@
   }
 
   &__button {
+    display: flex;
+    justify-content: center;
     cursor: pointer;
     border: none;
     outline: none;
