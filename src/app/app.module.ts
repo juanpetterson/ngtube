@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderSearchboxComponent } from './header/header-searchbox/header-searchbox.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeaderSearchboxComponent],
+  declarations: [AppComponent, HeaderComponent, HeaderSearchboxComponent, SidebarComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

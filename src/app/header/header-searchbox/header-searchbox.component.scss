@@ -1,7 +1,7 @@
 @import '../../../assets/_variables.scss';
 
 .searchbox {
-  margin: 0 40px;
+  margin: 0 60px;
   flex: 1;
 
   &__form {
@@ -43,7 +43,7 @@
   }
 
   &__icon {
-    color: lighten($primary-text-color, 15%);
+    color: lighten($primary-text-color, 22%);
     opacity: 0.6;
     font-size: 20px;
     font-weight: 500;
