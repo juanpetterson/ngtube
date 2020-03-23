@@ -1,6 +1,12 @@
 <div class="sidebar">
   <div class="sidebar__menu">
-    <div class="sidebar__item" title="Home">
+    <div
+      routerLinkActive="sidebar__item--active"
+      routerLink="/"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="sidebar__item"
+      title="Home"
+    >
       <span class="material-icons sidebar__icon">
         home
       </span>
@@ -8,9 +14,19 @@
         Home
       </span>
     </div>
-    <div class="sidebar__item" title="Trending">
+    <div
+      routerLink="trending"
+      title="Trending"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [ngClass]="{ sidebar__item: true, 'sidebar__item--active': rla.isActive }"
+    >
       <img
-        src="../../assets//yt_trending.svg"
+        [src]="
+          rla.isActive
+            ? '../../assets/yt_trending-active.svg'
+            : '../../assets/yt_trending.svg'
+        "
         alt="trending"
         class="sidebar__icon"
       />
@@ -18,7 +34,12 @@
         Trending
       </span>
     </div>
-    <div class="sidebar__item" title="Subscriptions">
+    <div
+      routerLinkActive="sidebar__item--active"
+      routerLink="subscriptions"
+      class="sidebar__item"
+      title="Subscriptions"
+    >
       <span class="material-icons sidebar__icon sidebar__icon--small">
         subscriptions
       </span>
@@ -26,7 +47,12 @@
         Subscriptions
       </span>
     </div>
-    <div class="sidebar__item" title="Library">
+    <div
+      routerLinkActive="sidebar__item--active"
+      routerLink="library"
+      class="sidebar__item"
+      title="Library"
+    >
       <span class="material-icons sidebar__icon">
         video_library
       </span>
