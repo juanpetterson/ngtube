@@ -4,7 +4,7 @@
   width: 100%;
   height: 3.5rem;
   position: fixed;
-  background-color: $primary-background-color;
+  background-color: rgba($primary-background-color, 0.97);
 
   &__container {
     padding: 0 1rem;
@@ -30,9 +30,7 @@
 .header-menu {
   display: flex;
   align-items: center;
-  // justify-content: center;
   height: 2.5rem;
-  // justify-content: space-around;
 
   &__wrapper {
     margin-right: 0.5rem;
