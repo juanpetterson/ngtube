@@ -6,9 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderSearchboxComponent } from './header/header-searchbox/header-searchbox.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { BrowseComponent } from './browse/browse.component';
+import { BrowseListComponent } from './browse/browse-list/browse-list.component';
+import { BrowseItemComponent } from './browse/browse-item/browse-item.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeaderSearchboxComponent, SidebarComponent],
+  declarations: [AppComponent, HeaderComponent, HeaderSearchboxComponent, SidebarComponent, BrowseComponent, BrowseListComponent, BrowseItemComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
