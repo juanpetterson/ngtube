@@ -11,6 +11,12 @@
 
   @media (max-width: 120rem) {
     &__container {
+      grid-template-columns: repeat(5, auto);
+    }
+  }
+
+  @media (max-width: 112rem) {
+    &__container {
       grid-template-columns: repeat(4, auto);
     }
   }

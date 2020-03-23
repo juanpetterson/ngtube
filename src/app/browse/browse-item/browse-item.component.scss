@@ -12,9 +12,20 @@
   &__thumbnail {
     width: 100%;
   }
+}
 
-  &__footer {
+.description {
+  text-decoration: none;
+  color: lighten($primary-text-color, 20%);
+
+  &__wrapper {
     display: flex;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 0 0.3rem;
   }
 
   &__image {
@@ -24,17 +35,6 @@
   &__channel-image {
     border-radius: 50%;
     width: 2.25rem;
-  }
-}
-
-.description {
-  text-decoration: none;
-  color: lighten($primary-text-color, 20%);
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 1rem 0 0.3rem;
   }
 
   &__title {
