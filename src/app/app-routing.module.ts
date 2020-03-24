@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '', component: BrowseComponent, pathMatch: 'full' },
   { path: 'trending', component: BrowseComponent, pathMatch: 'full' },
   { path: 'subscriptions', component: BrowseComponent },
-  { path: 'library', component: BrowseComponent }
+  { path: 'library', component: BrowseComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

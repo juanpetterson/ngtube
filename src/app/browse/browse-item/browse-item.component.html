@@ -1,9 +1,9 @@
 <div class="item">
   <div class="item__container">
-    <a href="/watch?v=rxHVlTM_iNk" class="item__anchor">
+    <a [href]="'/watch?v=' + videoItem.id" class="item__anchor">
       <div class="item__content">
         <img
-          src="https://i.ytimg.com/vi/rxHVlTM_iNk/hq720.jpg?sqp=-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCampm55OmViCyi2bfzRX_onNJvTw"
+          [src]="videoItem.thumbnail"
           alt="content-image"
           class="item__thumbnail"
         />
@@ -21,14 +21,15 @@
         <div class="description__container">
           <div>
             <h3 class="description__title">
-              Stuck At Home? Learn To Code For Free!
+              {{ videoItem.title | slice: 0:40 }}
+              <!-- add  custompipe to max lenght without cut words -->
             </h3>
           </div>
           <div class="description__channel">
-            <span>Colt Steele</span>
+            <span>{{ videoItem.channel }}</span>
           </div>
           <div class="description__info">
-            <span>11k views • 3 days ago</span>
+            <span>{{ videoItem.views }} • 3 days ago</span>
           </div>
         </div>
       </div>

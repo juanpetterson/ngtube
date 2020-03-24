@@ -9,10 +9,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
 import { BrowseItemComponent } from './browse/browse-item/browse-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HeaderSearchboxComponent, SidebarComponent, BrowseComponent, BrowseListComponent, BrowseItemComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HeaderSearchboxComponent,
+    SidebarComponent,
+    BrowseComponent,
+    BrowseListComponent,
+    BrowseItemComponent
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

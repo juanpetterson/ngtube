@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BrowseItem } from './browse-item.model';
 
 @Component({
   selector: 'app-browse-item',
@@ -6,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browse-item.component.scss']
 })
 export class BrowseItemComponent implements OnInit {
+  @Input() videoItem: BrowseItem;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
