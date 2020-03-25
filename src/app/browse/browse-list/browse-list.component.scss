@@ -1,35 +1,39 @@
 .list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   &__title {
     margin-left: 1rem;
   }
 
   &__container {
     display: grid;
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns: repeat(6, 1fr);
     justify-content: center;
   }
 
   @media (max-width: 120rem) {
     &__container {
-      grid-template-columns: repeat(5, auto);
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
   @media (max-width: 112rem) {
     &__container {
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
   @media (max-width: 70rem) {
     &__container {
-      grid-template-columns: repeat(3, auto);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   @media (max-width: 55rem) {
     &__container {
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 

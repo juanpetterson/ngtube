@@ -7,7 +7,8 @@ import { BrowseItem } from './browse-item.model';
   styleUrls: ['./browse-item.component.scss']
 })
 export class BrowseItemComponent implements OnInit {
-  @Input() videoItem: BrowseItem;
+  @Input() browseItem: BrowseItem;
+  @Input() channelThumbnail: string;
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,19 +1,19 @@
 <div class="item">
   <div class="item__container">
-    <a [href]="'/watch?v=' + videoItem.id" class="item__anchor">
+    <a [href]="'/watch?v=' + browseItem.id" class="item__anchor">
       <div class="item__content">
         <img
-          [src]="videoItem.thumbnail"
+          [src]="browseItem.thumbnail"
           alt="content-image"
           class="item__thumbnail"
         />
       </div>
     </a>
-    <a href="/channel/UCrqAGUPPMOdo0jfQ6grikZw" class="description">
+    <a [href]="'/channel/' + browseItem.channelId" class="description">
       <div class="description__wrapper">
         <div class="description__image">
           <img
-            src="https://yt3.ggpht.com/a-/AOh14Giua-ttGll71FhMfaXNvZkX0jbGoqefbeHd4w=s68-c-k-c0x00ffffff-no-rj-mo"
+            [src]="channelThumbnail"
             alt="channel-image"
             class="description__channel-image"
           />
@@ -21,15 +21,14 @@
         <div class="description__container">
           <div>
             <h3 class="description__title">
-              {{ videoItem.title | slice: 0:40 }}
-              <!-- add  custompipe to max lenght without cut words -->
+              {{ browseItem.title | slice: 0:40 }}
             </h3>
           </div>
           <div class="description__channel">
-            <span>{{ videoItem.channel }}</span>
+            <span>{{ browseItem.channel }}</span>
           </div>
           <div class="description__info">
-            <span>{{ videoItem.views }} • 3 days ago</span>
+            <span>{{ browseItem.views }} • 3 days ago</span>
           </div>
         </div>
       </div>

@@ -1,16 +1,13 @@
+<div class="loading-spinner" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 <div class="browse">
-  <div class="browse-lists">
-    <div class="browse-list browse-list--trending">
-      <app-browse-list></app-browse-list>
-    </div>
-    <div class="browse-list">
-      <app-browse-list></app-browse-list>
-    </div>
-    <div class="browse-list">
-      <app-browse-list></app-browse-list>
-    </div>
-    <div class="browse-list">
-      <app-browse-list></app-browse-list>
+  <div class="browse-lists" *ngIf="!isLoading">
+    <div
+      class="browse-list browse-list--trending"
+      *ngFor="let browseList of browseLists"
+    >
+      <app-browse-list [browseItems]="browseList"></app-browse-list>
     </div>
   </div>
 </div>

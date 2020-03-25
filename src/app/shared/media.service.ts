@@ -13,7 +13,25 @@ export interface YoutubeResponseData {
     totalResults: number;
     resulstPerPage: number;
   };
-  items: [];
+  items: [
+    {
+      id: string;
+      snippet: {
+        title: string;
+        channelTitle: string;
+        channelId: string;
+        publishedAt: string;
+        thumbnails: {
+          default: {
+            url: string;
+          };
+          medium: {
+            url: string;
+          };
+        };
+      };
+    }
+  ];
 }
 
 @Injectable({ providedIn: 'root' })
@@ -24,7 +42,7 @@ export class MediaService {
     let params = new HttpParams();
     params = params.set('part', 'snippet, contentDetails');
     params = params.set('chart', 'mostPopular');
-    params = params.set('maxResults', '5');
+    params = params.set('maxResults', '8');
 
     return this.http
       .get<YoutubeResponseData>(
@@ -37,13 +55,13 @@ export class MediaService {
         }),
         map(items => {
           const listVideos: BrowseItem[] = [];
-          console.log(items);
           items.map(item => {
             listVideos.push(
               new BrowseItem(
                 item.id,
                 item.snippet.title,
                 item.snippet.channelTitle,
+                item.snippet.channelId,
                 '10k',
                 item.snippet.publishedAt,
                 item.snippet.thumbnails.medium.url
@@ -52,6 +70,31 @@ export class MediaService {
           });
 
           return listVideos;
+        })
+      );
+  }
+
+  fetchChannels(channelsIds: string[]) {
+    let params = new HttpParams();
+    params = params.set('part', 'snippet');
+    params = params.set('id', channelsIds.join(',') + '');
+
+    return this.http
+      .get<YoutubeResponseData>(
+        `https://www.googleapis.com/youtube/v3/channels?key=${environment.youtubeApiKey}`,
+        { params }
+      )
+      .pipe(
+        map(responseData => {
+          return responseData.items;
+        }),
+        map(items => {
+          const channelsThumbnailUrl = [];
+          items.map(item => {
+            channelsThumbnailUrl.push(item.snippet.thumbnails.default.url);
+          });
+
+          return channelsThumbnailUrl;
         })
       );
   }
