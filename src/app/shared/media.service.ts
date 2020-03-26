@@ -30,6 +30,9 @@ export interface YoutubeResponseData {
           };
         };
       };
+      statistics: {
+        viewCount: string;
+      };
     }
   ];
 }
@@ -40,9 +43,11 @@ export class MediaService {
 
   fetchVideos() {
     let params = new HttpParams();
-    params = params.set('part', 'snippet, contentDetails');
+    params = params.set('part', 'snippet, statistics');
     params = params.set('chart', 'mostPopular');
     params = params.set('maxResults', '8');
+
+    const channelsIds: string[] = [];
 
     return this.http
       .get<YoutubeResponseData>(
@@ -56,13 +61,15 @@ export class MediaService {
         map(items => {
           const listVideos: BrowseItem[] = [];
           items.map(item => {
+            channelsIds.push(item.snippet.channelId);
             listVideos.push(
               new BrowseItem(
                 item.id,
                 item.snippet.title,
                 item.snippet.channelTitle,
                 item.snippet.channelId,
-                '10k',
+                '',
+                item.statistics.viewCount,
                 item.snippet.publishedAt,
                 item.snippet.thumbnails.medium.url
               )
@@ -70,6 +77,18 @@ export class MediaService {
           });
 
           return listVideos;
+        }),
+        map(items => {
+          let channelsUrls: string[] = [];
+          this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
+            channelsUrls = resChannelsUrls;
+
+            items.map((item, index) => {
+              return (item.channelThumbnail = channelsUrls[index]);
+            });
+          });
+
+          return items;
         })
       );
   }

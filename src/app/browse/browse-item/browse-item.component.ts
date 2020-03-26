@@ -8,7 +8,6 @@ import { BrowseItem } from './browse-item.model';
 })
 export class BrowseItemComponent implements OnInit {
   @Input() browseItem: BrowseItem;
-  @Input() channelThumbnail: string;
   constructor() {}
 
   ngOnInit(): void {}

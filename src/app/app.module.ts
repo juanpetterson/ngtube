@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +12,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
 import { BrowseItemComponent } from './browse/browse-item/browse-item.component';
-import { HttpClientModule } from '@angular/common/http';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,15 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     SidebarComponent,
     BrowseComponent,
     BrowseListComponent,
-    BrowseItemComponent,
-    LoadingSpinnerComponent
+    BrowseItemComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

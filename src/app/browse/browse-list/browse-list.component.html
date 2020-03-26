@@ -5,10 +5,7 @@
       class="list_item"
       *ngFor="let browseItemEl of browseItems; let i = index"
     >
-      <app-browse-item
-        [browseItem]="browseItemEl"
-        [channelThumbnail]="channelsUrls[i]"
-      ></app-browse-item>
+      <app-browse-item [browseItem]="browseItemEl"></app-browse-item>
     </div>
   </div>
 </div>

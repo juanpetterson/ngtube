@@ -19,3 +19,24 @@ body {
 body {
   overflow-y: scroll;
 }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.mat-progress-bar {
+  height: 2px !important;
+
+  .mat-progress-bar-buffer {
+    background: #e4e8eb;
+  }
+
+  .mat-progress-bar-fill::after {
+    background: #fa7171;
+  }
+}
