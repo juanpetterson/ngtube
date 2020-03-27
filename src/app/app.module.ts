@@ -12,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
 import { BrowseItemComponent } from './browse/browse-item/browse-item.component';
+import { ViewsPipe } from './pipes/views.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowseItemComponent } from './browse/browse-item/browse-item.component'
     SidebarComponent,
     BrowseComponent,
     BrowseListComponent,
-    BrowseItemComponent
+    BrowseItemComponent,
+    ViewsPipe
   ],
   imports: [
     BrowserModule,
