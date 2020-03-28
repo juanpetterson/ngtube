@@ -14,9 +14,9 @@ export class BrowseComponent implements OnInit {
   constructor(private mediaService: MediaService) {}
 
   ngOnInit(): void {
-    this.mediaService.fetchVideos().subscribe(videos => {
+    this.mediaService.fetchVideos().subscribe(listVideos => {
       while (this.browseLists.length < 5) {
-        this.browseLists.push(videos);
+        this.browseLists.push(listVideos);
       }
       this.isLoading = false;
     });

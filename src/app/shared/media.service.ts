@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { BrowseItem } from '../browse/browse-item/browse-item.model';
@@ -78,17 +78,12 @@ export class MediaService {
 
           return listVideos;
         }),
-        map(items => {
-          let channelsUrls: string[] = [];
-          this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
-            channelsUrls = resChannelsUrls;
-
-            items.map((item, index) => {
-              return (item.channelThumbnail = channelsUrls[index]);
+        tap(listVideos => {
+          return this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
+            listVideos.map((item, index) => {
+              return (item.channelThumbnail = resChannelsUrls[index]);
             });
           });
-
-          return items;
         })
       );
   }
