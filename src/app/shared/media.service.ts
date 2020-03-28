@@ -41,7 +41,7 @@ export interface YoutubeResponseData {
 export class MediaService {
   constructor(private http: HttpClient) {}
 
-  fetchVideos() {
+  fetchListVideos() {
     let params = new HttpParams();
     params = params.set('part', 'snippet, statistics');
     params = params.set('chart', 'mostPopular');

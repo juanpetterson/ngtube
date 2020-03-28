@@ -13,6 +13,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
 import { BrowseItemComponent } from './browse/browse-item/browse-item.component';
 import { ViewsPipe } from './pipes/views.pipe';
+import { WatcherComponent } from './watcher/watcher.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewsPipe } from './pipes/views.pipe';
     BrowseComponent,
     BrowseListComponent,
     BrowseItemComponent,
-    ViewsPipe
+    ViewsPipe,
+    WatcherComponent
   ],
   imports: [
     BrowserModule,
