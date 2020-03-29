@@ -5,6 +5,7 @@
   height: 3.5rem;
   position: fixed;
   background-color: rgba($primary-background-color, 0.97);
+  z-index: 10;
 
   &__container {
     padding: 0 1rem;

@@ -11,37 +11,50 @@
 
   &__container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
     justify-content: center;
+
+    &--horizontal {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 
   @media (max-width: 120rem) {
     &__container {
-      grid-template-columns: repeat(5, 1fr);
+      &--horizontal {
+        grid-template-columns: repeat(5, 1fr);
+      }
     }
   }
 
   @media (max-width: 112rem) {
     &__container {
-      grid-template-columns: repeat(4, 1fr);
+      &--horizontal {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
   }
 
   @media (max-width: 70rem) {
     &__container {
-      grid-template-columns: repeat(3, 1fr);
+      &--horizontal {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   }
 
   @media (max-width: 55rem) {
     &__container {
-      grid-template-columns: repeat(2, 1fr);
+      &--horizontal {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 
   @media (max-width: 32rem) {
     &__container {
-      grid-template-columns: repeat(1, auto);
+      &--horizontal {
+        grid-template-columns: repeat(1, auto);
+      }
     }
   }
 }

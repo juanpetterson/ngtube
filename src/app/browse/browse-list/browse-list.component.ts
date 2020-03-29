@@ -9,6 +9,8 @@ import { BrowseItem } from '../browse-item/browse-item.model';
 export class BrowseListComponent implements OnInit {
   constructor() {}
   @Input() browseItems: BrowseItem[];
+  @Input() listTitle: string;
+  @Input() horizontalLayout = true;
 
   ngOnInit(): void {}
 }

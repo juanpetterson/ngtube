@@ -1,5 +1,5 @@
-<div class="watcher">
-  <div class="watcher__container">
+<a class="watcher">
+  <a class="watcher__container">
     <div class="watcher__player">
       <iframe
         id="player"
@@ -10,5 +10,62 @@
         frameBorder="0"
       ></iframe>
     </div>
-  </div>
-</div>
+    <!-- <div class="details-container" *ngIf="!isLoading"> -->
+    <div class="details-container">
+      <div class="video-details">
+        <div class="video-details__header">
+          <h3 class="video-details__title">{{ videoItem.title }}</h3>
+          <div class="video-details__infos">
+            {{ videoItem.views | number }} •
+            {{ videoItem.published | date: 'mediumDate' }}
+            <div class="video-details__buttons">
+              <a class="video-details__anchor">
+                <div class="video-details__button">
+                  <span class="material-icons video-details__icon">
+                    thumb_up
+                  </span>
+                  <span>50k</span>
+                </div>
+              </a>
+              <a class="video-details__anchor">
+                <div class="video-details__button">
+                  <span class="material-icons video-details__icon">
+                    thumb_down
+                  </span>
+                  <span>300</span>
+                </div>
+              </a>
+              <a class="video-details__anchor">
+                <div class="video-details__button">
+                  <span
+                    class="material-icons video-details__icon video-details__icon--flip"
+                  >
+                    reply
+                  </span>
+                  <span>SHARE</span>
+                </div>
+              </a>
+              <a class="video-details__anchor">
+                <div class="video-details__button">
+                  <span class="material-icons video-details__icon">
+                    more_horiz
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="video-details__content">
+          <span>{{ videoItem.description }}</span>
+        </div>
+      </div>
+      <div class="related-videos">
+        <h4 class="related-videos__title">Up next</h4>
+        <app-browse-list
+          [browseItems]="relatedVideos"
+          [horizontalLayout]="false"
+        ></app-browse-list>
+      </div>
+    </div>
+  </a>
+</a>

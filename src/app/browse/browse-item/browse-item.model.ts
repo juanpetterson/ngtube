@@ -1,6 +1,7 @@
 export class BrowseItem {
   public id: string;
   public title: string;
+  public description: string;
   public channel: string;
   public channelId: string;
   public channelThumbnail: string;
@@ -11,6 +12,7 @@ export class BrowseItem {
   constructor(
     id: string,
     title: string,
+    description: string,
     channel: string,
     channelId: string,
     channelThumbnail: string,
@@ -20,6 +22,7 @@ export class BrowseItem {
   ) {
     this.id = id;
     this.title = title;
+    this.description = description;
     this.channel = channel;
     this.channelId = channelId;
     this.channelThumbnail = channelThumbnail;

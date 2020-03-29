@@ -1,6 +1,11 @@
 <div class="list">
-  <h3 class="list__title">Recommended</h3>
-  <div class="list__container">
+  <h3 class="list__title" *ngIf="listTitle">{{ listTitle }}</h3>
+  <div
+    class="list__container"
+    [ngClass]="{
+      'list__container--horizontal': horizontalLayout
+    }"
+  >
     <div
       class="list_item"
       *ngFor="let browseItemEl of browseItems; let i = index"

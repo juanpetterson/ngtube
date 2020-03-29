@@ -1,3 +1,5 @@
+@import '../../assets/_variables.scss';
+
 .watcher {
   display: flex;
   height: 100%;
@@ -7,14 +9,82 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
   }
 
   &__player {
     position: relative;
     width: 100%;
-    height: cal((9 / 16) * 100vw);
-    max-height: calc(100vh - 169px);
-    min-height: 480px;
+    height: calc((9 / 16) * 100vw);
+    max-height: min(56vw, calc(100vh - 210px));
+  }
+}
+
+.details-container {
+  padding: 0 1.5rem;
+  display: flex;
+
+  .video-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 10;
+
+    &__header {
+    }
+    &__title {
+      font-weight: 400;
+    }
+    &__infos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: lighten($primary-text-color, 42%);
+      font-size: 0.9rem;
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.25rem;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    &__icon {
+      user-select: none;
+      font-size: 20px;
+      margin-right: 5px;
+
+      &--flip {
+        transform: scaleX(-1);
+      }
+    }
+
+    &__content {
+      margin-top: 2rem;
+    }
+
+    &__anchor {
+      cursor: pointer;
+      margin: 0 15px;
+    }
+  }
+  .related-videos {
+    width: 400px;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    flex-grow: 1;
+
+    &__title {
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
   }
 }

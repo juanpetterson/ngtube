@@ -8,7 +8,10 @@
       class="browse-list browse-list--trending"
       *ngFor="let browseList of browseLists"
     >
-      <app-browse-list [browseItems]="browseList"></app-browse-list>
+      <app-browse-list
+        [browseItems]="browseList"
+        [listTitle]="'Recommended'"
+      ></app-browse-list>
     </div>
   </div>
 </div>

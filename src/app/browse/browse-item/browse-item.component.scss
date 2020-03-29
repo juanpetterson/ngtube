@@ -2,8 +2,11 @@
 
 .item {
   margin: 0 0.5rem 2.5rem 0.5rem;
-  display: flex;
-  flex-direction: column;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__content {
     display: block;

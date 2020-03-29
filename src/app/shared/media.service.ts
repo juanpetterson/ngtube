@@ -18,6 +18,7 @@ export interface YoutubeResponseData {
       id: string;
       snippet: {
         title: string;
+        description: string;
         channelTitle: string;
         channelId: string;
         publishedAt: string;
@@ -66,6 +67,7 @@ export class MediaService {
               new BrowseItem(
                 item.id,
                 item.snippet.title,
+                item.snippet.description,
                 item.snippet.channelTitle,
                 item.snippet.channelId,
                 '',
@@ -79,12 +81,81 @@ export class MediaService {
           return listVideos;
         }),
         tap(listVideos => {
-          return this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
+          this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
             listVideos.map(item => {
               return (item.channelThumbnail = resChannelsUrls.get(
                 item.channelId
               ));
             });
+          });
+        })
+      );
+  }
+
+  fetchVideo(videoId: string) {
+    let params = new HttpParams();
+    params = params.set('part', 'snippet, statistics');
+    params = params.set('id', videoId);
+
+    return this.http
+      .get<YoutubeResponseData>(
+        `https://www.googleapis.com/youtube/v3/videos?key=${environment.youtubeApiKey}`,
+        { params }
+      )
+      .pipe(
+        map(response => {
+          return response.items[0];
+        }),
+        map(item => {
+          return new BrowseItem(
+            item.id,
+            item.snippet.title,
+            item.snippet.description,
+            item.snippet.channelTitle,
+            item.snippet.channelId,
+            '',
+            item.statistics.viewCount,
+            item.snippet.publishedAt,
+            item.snippet.thumbnails.medium.url
+          );
+        }),
+        tap(item => {
+          this.fetchChannels([item.channelId]).subscribe(resChannelsUrls => {
+            item.channelThumbnail = resChannelsUrls.get(item.channelId);
+          });
+        })
+      );
+  }
+
+  fetchRelatedVideos(videoId: string) {
+    let params = new HttpParams();
+    params = params.set('part', 'snippet');
+    params = params.set('relatedToVideoId', videoId);
+    params = params.set('type', 'video');
+    params = params.set('maxResults', '20');
+
+    return this.http
+      .get<YoutubeResponseData>(
+        `https://www.googleapis.com/youtube/v3/search?key=${environment.youtubeApiKey}`,
+        { params }
+      )
+      .pipe(
+        map(response => {
+          return response.items;
+        }),
+        map(items => {
+          return items.map(item => {
+            return new BrowseItem(
+              item.id,
+              item.snippet.title,
+              item.snippet.description,
+              item.snippet.channelTitle,
+              item.snippet.channelId,
+              '',
+              '',
+              item.snippet.publishedAt,
+              item.snippet.thumbnails.medium.url
+            );
           });
         })
       );
