@@ -80,8 +80,10 @@ export class MediaService {
         }),
         tap(listVideos => {
           return this.fetchChannels(channelsIds).subscribe(resChannelsUrls => {
-            listVideos.map((item, index) => {
-              return (item.channelThumbnail = resChannelsUrls[index]);
+            listVideos.map(item => {
+              return (item.channelThumbnail = resChannelsUrls.get(
+                item.channelId
+              ));
             });
           });
         })
@@ -103,9 +105,12 @@ export class MediaService {
           return responseData.items;
         }),
         map(items => {
-          const channelsThumbnailUrl = [];
+          const channelsThumbnailUrl = new Map();
           items.map(item => {
-            channelsThumbnailUrl.push(item.snippet.thumbnails.default.url);
+            channelsThumbnailUrl.set(
+              item.id,
+              item.snippet.thumbnails.default.url
+            );
           });
 
           return channelsThumbnailUrl;

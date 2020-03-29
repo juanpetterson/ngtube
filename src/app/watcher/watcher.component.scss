@@ -11,8 +11,10 @@
   }
 
   &__player {
-    height: 100%;
+    position: relative;
     width: 100%;
-    max-height: 500px;
+    height: cal((9 / 16) * 100vw);
+    max-height: calc(100vh - 169px);
+    min-height: 480px;
   }
 }
