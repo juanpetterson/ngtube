@@ -20,14 +20,17 @@
         <div class="description__container">
           <div>
             <h3 class="description__title">
-              {{ browseItem.title | slice: 0:40 }}
+              {{ browseItem.title | shorten: 40 }}
             </h3>
           </div>
           <div class="description__channel">
             <span>{{ browseItem.channel }}</span>
           </div>
           <div class="description__info">
-            <span>{{ browseItem.views | views }} views • 3 days ago</span>
+            <span
+              >{{ browseItem.views | views }} views •
+              {{ browseItem.published | since }}</span
+            >
           </div>
         </div>
       </div>
