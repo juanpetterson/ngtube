@@ -7,7 +7,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HeaderSearchboxComponent } from './header/header-searchbox/header-searchbox.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
@@ -19,7 +18,6 @@ import { WatcherComponent } from './watcher/watcher.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HeaderSearchboxComponent,
     SidebarComponent,
     BrowseComponent,
     BrowseListComponent,

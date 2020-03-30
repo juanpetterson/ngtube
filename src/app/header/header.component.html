@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [ngClass]="classTheme">
   <div class="header__container">
     <div class="header-menu">
       <div class="header-menu__wrapper header-menu__wrapper--spaced">
@@ -14,15 +14,22 @@
         id="logo"
         class="header__brand"
       >
-        <img
-          src="../../assets/yt_logo_light.svg"
-          alt="logo"
-          class="header__logo"
-        />
+        <div class="header__logo"></div>
       </a>
     </div>
     <div class="header__searchbox">
-      <app-header-searchbox></app-header-searchbox>
+      <div class="searchbox">
+        <form class="searchbox__form">
+          <div class="searchbox__container">
+            <input type="text" placeholder="Search" class="searchbox__input" />
+          </div>
+          <button type="button" class="searchbox__button" title="Search">
+            <span class="material-icons searchbox__icon">
+              search
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
     <div class="header-menu">
       <div class="header-menu__wrapper">
