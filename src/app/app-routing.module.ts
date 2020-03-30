@@ -4,7 +4,6 @@ import { BrowseComponent } from './browse/browse.component';
 import { WatcherComponent } from './watcher/watcher.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: BrowseComponent, pathMatch: 'full' },
   { path: 'feed/trending', component: BrowseComponent },
   { path: 'feed/subscriptions', component: BrowseComponent },
