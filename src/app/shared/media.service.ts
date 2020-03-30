@@ -15,7 +15,7 @@ export interface YoutubeResponseData {
   };
   items: [
     {
-      id: string;
+      id: any;
       snippet: {
         title: string;
         description: string;
@@ -152,7 +152,7 @@ export class MediaService {
         map(items => {
           return items.map(item => {
             return new BrowseItem(
-              item.id,
+              item.id.videoId,
               item.snippet.title,
               item.snippet.description,
               item.snippet.channelTitle,

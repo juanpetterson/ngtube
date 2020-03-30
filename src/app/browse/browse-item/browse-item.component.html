@@ -1,11 +1,19 @@
 <div class="item">
-  <div class="item__container">
+  <div
+    class="item__container"
+    [ngClass]="{
+      'item__container--horizontal': horizontalLayout
+    }"
+  >
     <a [href]="'/watch?v=' + browseItem.id" class="item__anchor">
       <div class="item__content">
         <img
           [src]="browseItem.thumbnail"
           alt="content-image"
           class="item__thumbnail"
+          [ngClass]="{
+            'item__thumbnail--horizontal': horizontalLayout
+          }"
         />
       </div>
     </a>
@@ -27,10 +35,10 @@
             <span>{{ browseItem.channel }}</span>
           </div>
           <div class="description__info">
-            <span
+            <span *ngIf="browseItem.views"
               >{{ browseItem.views | views }} views •
-              {{ browseItem.published | since }}</span
-            >
+            </span>
+            <span> {{ browseItem.published | since }}</span>
           </div>
         </div>
       </div>
