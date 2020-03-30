@@ -31,8 +31,10 @@ export interface YoutubeResponseData {
           };
         };
       };
-      statistics: {
+      statistics?: {
         viewCount: string;
+        likeCount: string;
+        dislikeCount: string;
       };
     }
   ];
@@ -72,6 +74,8 @@ export class MediaService {
                 item.snippet.channelId,
                 '',
                 item.statistics.viewCount,
+                item.statistics.likeCount,
+                item.statistics.dislikeCount,
                 item.snippet.publishedAt,
                 item.snippet.thumbnails.medium.url
               )
@@ -115,6 +119,8 @@ export class MediaService {
             item.snippet.channelId,
             '',
             item.statistics.viewCount,
+            item.statistics.likeCount,
+            item.statistics.dislikeCount,
             item.snippet.publishedAt,
             item.snippet.thumbnails.medium.url
           );
@@ -132,7 +138,7 @@ export class MediaService {
     params = params.set('part', 'snippet');
     params = params.set('relatedToVideoId', videoId);
     params = params.set('type', 'video');
-    params = params.set('maxResults', '20');
+    params = params.set('maxResults', '10');
 
     return this.http
       .get<YoutubeResponseData>(
@@ -151,6 +157,8 @@ export class MediaService {
               item.snippet.description,
               item.snippet.channelTitle,
               item.snippet.channelId,
+              '',
+              '',
               '',
               '',
               item.snippet.publishedAt,

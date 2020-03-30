@@ -24,7 +24,7 @@
                   <span class="material-icons video-details__icon">
                     thumb_up
                   </span>
-                  <span>50k</span>
+                  <span>{{ videoItem.likes | views }}</span>
                 </div>
               </a>
               <a class="video-details__anchor">
@@ -32,7 +32,7 @@
                   <span class="material-icons video-details__icon">
                     thumb_down
                   </span>
-                  <span>300</span>
+                  <span>{{ videoItem.dislikes | views }}</span>
                 </div>
               </a>
               <a class="video-details__anchor">

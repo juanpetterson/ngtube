@@ -6,6 +6,8 @@ export class BrowseItem {
   public channelId: string;
   public channelThumbnail: string;
   public views: string;
+  public likes: string;
+  public dislikes: string;
   public published: string;
   public thumbnail: string;
 
@@ -17,6 +19,8 @@ export class BrowseItem {
     channelId: string,
     channelThumbnail: string,
     views: string,
+    likes: string,
+    dislikes: string,
     published: string,
     thumbnail: string
   ) {
@@ -27,6 +31,8 @@ export class BrowseItem {
     this.channelId = channelId;
     this.channelThumbnail = channelThumbnail;
     this.views = views;
+    this.likes = likes;
+    this.dislikes = dislikes;
     this.published = published;
     this.thumbnail = thumbnail;
   }
